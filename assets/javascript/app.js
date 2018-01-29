@@ -1,23 +1,33 @@
 
-//global variables
-
-var time;
-var intervalId;
-var questionsObj = {
-	"What is the square root of 225?": [15, 25, 22.5, 10], 
-	"Which country gifted the Statue of Liberty to the United States?": ["England","France", "China", "Brazil"], 
-	"Where is Petra?": ["Israel", "Greece", "Jordan", "Egypt"]
-}
-var win = 0;
-var loss = 0;
-
-
 $(document).ready(function () {
 
-	// function with decrementing time interval 
-	var time = 10;
-	var split;
+	//global variables
 
+	var time = 10;
+	var intervalId;
+	var questions = [ 
+		{
+			"question": "What is the square root of 225?",
+			"answer": [15, 25, 22.5, 10],
+			"correct": 0	
+		},
+		{
+			"question": "Which country gifted the Statue of Liberty to the United States?",
+			"answer": ["England", "France", "China", "Brazil"],
+			"correct": 1	
+		},
+		{
+			"question": "Where is Petra?",
+			"answer": ["Israel", "Greece", "Jordan", "Egypt"],
+			"correct": 2	
+		},	
+		]
+	var win = 0;
+	var loss = 0;
+	var currentQuestion = 0;
+
+
+	// function with decrementing time interval
 
 	function runTime() {
 		intervalId = setInterval(decrement, 1000);
@@ -37,53 +47,42 @@ $(document).ready(function () {
 		clearInterval(intervalId);
 	};
 
-
 	// function with for loop to loop through answers and split the "," out 
 
+	function displayQuestion() {
+		for (var i = 0; i < questions.length; i++) {
+			$("#questions").append(questions[i].question + "<br>");
 
-	function questionAnswerDisplay() {
+			for (var j = 0; j < questions[i].answer.length; j++) {
+				$("#questions").append("<input type='radio' name='answer' value='" + j + "'>" + questions[i].answer[j] + "<br>");	
+			}	
 
-		for (var i = 0; i < questionsObj.length; i++) {
+			$("input").on("click", function() {
+				if($("input[name=answer]:checked").val() == questions[i].correct){
+					console.log("you got it");
+				};
+			});
 
-			$("#questions").append(questionsObj[i] + "<br>");
 
-			// split = answersArr[i].split(",");
-
-			// for (var j = 0; j < split.length; j++) {
-
-			// 	$("#questions").append("<input type='radio' id='userPress'>" + split[j] + "<br>");
-			
-
-			// };		
-		};	
-
+		};
+		// currentQuestion++;
+		// $("input").prop("checked", true);
 	};
 
-	var userClick = $("#userPress").click(function(){});
+	// function correctAnswer() {
+	// 	if( $("input[name=answer]:checked").val() == questions[0].correct){
+	// 		console.log("you got it");
+	// 	};
+	// }; == questions[currentQuestion].correct
 
 
 
-	// function answer() {
-		
-	// 	if (userClick == answersSplit[0]) {
-	// 		console.log("you win");
-	// 	}
 
-	// 	if (answersSplit[5] == ) {
-	// 		console.log("you win");
-	// 	}
-		
-	// 	if (answersSplit[10]) {
-	// 		console.log("you win");
-	// 	}
-		
-	// };
 
 
 	// runTime();
-	questionAnswerDisplay();
-	console.log(questionsObj[0])
-	
+	displayQuestion();
+	// console.log(questions[0].correct);
 
 
 });
