@@ -1,6 +1,6 @@
 body {
 	background-image: url("../images/earth.jpeg");
-	opacity: 0.5;
+	opacity: 0.85;
 }
 
 h1 {
@@ -15,8 +15,28 @@ h5 {
 	text-align: center;
 }
 
+#timer {
+	width: 100%;
+	margin: auto;
+	text-align: center;	
+	color: white;
+	font-size: 48px;
+}
+
 #questions {
+	background-color: #ddd;
 	width: 100%;
 	margin: auto;
 	text-align: center;
+}
+
+#buttons {
+	background-color: #ddd;
+	width: 100%;
+	margin: auto;
+	text-align: center;
+}
+
+#wins {
+
 }
