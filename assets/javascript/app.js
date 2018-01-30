@@ -9,18 +9,18 @@ $(document).ready(function () {
 		{
 			"question": "What is the square root of 225?",
 			"answer": [15, 25, 22.5, 10],
-			"correct": 0	
+			"correct": "0"	
 		},
 		{
 			"question": "Which country gifted the Statue of Liberty to the United States?",
 			"answer": ["England", "France", "China", "Brazil"],
-			"correct": 1	
+			"correct": "1"	
 		},
 		{
 			"question": "Where is Petra?",
 			"answer": ["Israel", "Greece", "Jordan", "Egypt"],
-			"correct": 2	
-		},	
+			"correct": "2"	
+		}
 		]
 	var win = 0;
 	var loss = 0;
@@ -52,38 +52,59 @@ $(document).ready(function () {
 	function displayQuestion() {
 		for (var i = 0; i < questions.length; i++) {
 			$("#questions").append(questions[i].question + "<br>");
+				currentQuestion + [i];
+				// console.log(currentQuestion + [i]);
 
 			for (var j = 0; j < questions[i].answer.length; j++) {
-				$("#questions").append("<input type='radio' name='answer' value='" + j + "'>" + questions[i].answer[j] + "<br>");	
+				
+				$("#questions").append("<input type='radio' name='q" + [i] + "' value='" + j + "'>" + questions[i].answer[j] + "<br>");	
+		
 			}	
 
-			$("input").on("click", function() {
-				if($("input[name=answer]:checked").val() == questions[i].correct){
-					console.log("you got it");
-				};
-			});
-
-
 		};
-		// currentQuestion++;
-		// $("input").prop("checked", true);
+
 	};
 
-	// function correctAnswer() {
-	// 	if( $("input[name=answer]:checked").val() == questions[0].correct){
-	// 		console.log("you got it");
-	// 	};
-	// }; == questions[currentQuestion].correct
-
-
-
-
+	function correctAnswer() {
+		$("input").on("click", function() {
+			var answer1 = ($( "input[name='q0']:checked" ).val());
+			var answer2 = ($( "input[name='q1']:checked" ).val());
+			var answer3 = ($( "input[name='q2']:checked" ).val());
+			if(answer1 == questions[0].correct){
+				win++;
+				console.log("you got it");
+			}	
+			else if(answer1 != questions[0].correct) {
+				loss++;
+				console.log("you lose");
+			}	
+			else {
+				console.log("please select answer");
+			}							
+			// if(answer2 == questions[1].correct){
+			// 	win++;
+			// 	console.log("you got it");
+			// };
+			// if(answer2 != questions[1].correct){
+			// 	loss++;
+			// 	console.log("you lose");
+			// };			
+			// if(answer3 == questions[2].correct){
+			// 	win++;
+			// 	console.log("you got it");
+			// };
+			// if(answer3 != questions[2].correct){
+			// 	loss++;
+			// 	console.log("you lose");
+			// };			
+		console.log(win);
+		console.log(loss);
+		});	
+	}; 
 
 
 	// runTime();
 	displayQuestion();
-	// console.log(questions[0].correct);
-
 
 });
 
