@@ -1,5 +1,18 @@
 body {
-	background-color: #bbb;
+	background-image: url("../images/earth.jpeg");
+	opacity: 0.5;
+}
+
+h1 {
+	color: lightblue;
+}
+
+h5 {
+	color: green;
+}
+
+.header {
+	text-align: center;
 }
 
 #questions {
