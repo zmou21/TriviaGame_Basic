@@ -57,7 +57,7 @@ $(document).ready(function () {
 
 			for (var j = 0; j < questions[i].answer.length; j++) {
 				
-				$("#questions").append("<input type='radio' name='q" + [i] + "' value='" + j + "'>" + questions[i].answer[j] + "<br>");	
+				$("#questions").append("<input type='radio' class='input" + [i] + "' name='q" + [i] + "' value='" + j + "'>" + questions[i].answer[j] + "<br>");	
 		
 			}	
 
@@ -70,41 +70,31 @@ $(document).ready(function () {
 			var answer1 = ($( "input[name='q0']:checked" ).val());
 			var answer2 = ($( "input[name='q1']:checked" ).val());
 			var answer3 = ($( "input[name='q2']:checked" ).val());
-			if(answer1 == questions[0].correct){
+			if(answer1 == questions[0].correct || answer2 == questions[1].correct || answer3 == questions[2].correct ){
 				win++;
 				console.log("you got it");
 			}	
-			else if(answer1 != questions[0].correct) {
+			else if(answer1 != questions[0].correct || answer2 != questions[1].correct || answer3 != questions[2].correct ) {
 				loss++;
 				console.log("you lose");
 			}	
 			else {
 				console.log("please select answer");
-			}							
-			// if(answer2 == questions[1].correct){
-			// 	win++;
-			// 	console.log("you got it");
-			// };
-			// if(answer2 != questions[1].correct){
-			// 	loss++;
-			// 	console.log("you lose");
-			// };			
-			// if(answer3 == questions[2].correct){
-			// 	win++;
-			// 	console.log("you got it");
-			// };
-			// if(answer3 != questions[2].correct){
-			// 	loss++;
-			// 	console.log("you lose");
-			// };			
+			}										
 		console.log(win);
 		console.log(loss);
 		});	
 	}; 
 
+	function radioCSS() {
+		$(".input0").css("padding", "10%");
+	}
+
 
 	// runTime();
 	displayQuestion();
+	correctAnswer();
+	radioCSS();	
 
 });
 
