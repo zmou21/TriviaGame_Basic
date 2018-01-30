@@ -62,6 +62,9 @@ $(document).ready(function () {
 		clearInterval(intervalId);
 	};
 
+	// hides submit button until keyboard is pressed
+	$("#button").hide();
+
 	// function with for loop to loop through answers and split the "," out 
 
 	document.body.onkeyup = function (e) {
@@ -69,7 +72,8 @@ $(document).ready(function () {
 	if (e.keyCode == 32) {	
 
 	$("#spaceBar").hide();
-	$("#wins").hide();	
+	$("#wins").hide();
+	$("#button").show();
 
 	function displayQuestion() {
 		for (var i = 0; i < questions.length; i++) {
