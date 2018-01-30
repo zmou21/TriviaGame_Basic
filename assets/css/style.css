@@ -7,10 +7,6 @@ h1 {
 	color: lightblue;
 }
 
-h5 {
-	color: green;
-}
-
 .header {
 	text-align: center;
 }
@@ -25,16 +21,22 @@ h5 {
 
 #questions {
 	background-color: #ddd;
-	width: 100%;
-	margin: auto;
+	width: 96%;
+	margin: 1%;
 	text-align: center;
+	padding: 1%;
+	font-size: 1em;
 }
 
-#buttons {
-	background-color: #ddd;
-	width: 100%;
-	margin: auto;
+#button {
+	width: 98%;
+	padding: 2%;
 	text-align: center;
+
+}
+
+button {
+	color: #777;
 }
 
 #wins {
