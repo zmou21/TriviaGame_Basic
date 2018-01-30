@@ -7,8 +7,8 @@ $(document).ready(function () {
 	var intervalId;
 	var questions = [ 
 		{
-			"question": "What is the square root of 225?",
-			"answer": [15, 25, 22.5, 10],
+			"question": "What is the capital of Chile?",
+			"answer": ["Santiago", "Buenos Aires", "Mexico City", "Chile City"],
 			"correct": "0"	
 		},
 		{
@@ -20,7 +20,22 @@ $(document).ready(function () {
 			"question": "Where is Petra?",
 			"answer": ["Israel", "Greece", "Jordan", "Egypt"],
 			"correct": "2"	
-		}
+		},
+		{
+			"question": "What is the most populous city in the world?",
+			"answer": ["Bejing", "Mexico City", "New York", "Tokyo"],
+			"correct": "3"	
+		},
+		{
+			"question": "Who influenced the building of the Panama Canal?",
+			"answer": ["Bob Barker", "Jose Martinez", "President Theodore Roosevelt", "Fidel Castro"],
+			"correct": "2"	
+		},
+		{
+			"question": "Which country is the city of Abuja located?",
+			"answer": ["Africa", "Nigeria", "India", "Egypt"],
+			"correct": "1"	
+		}						
 		]
 	var win = 0;
 	var loss = 0;
@@ -51,7 +66,7 @@ $(document).ready(function () {
 
 	function displayQuestion() {
 		for (var i = 0; i < questions.length; i++) {
-			$("#questions").append(questions[i].question + "<br>");
+			$("#questions").append("<b>" + questions[i].question + "</b> <br>");
 				currentQuestion + [i];
 				// console.log(currentQuestion + [i]);
 
@@ -70,11 +85,14 @@ $(document).ready(function () {
 			var answer1 = ($( "input[name='q0']:checked" ).val());
 			var answer2 = ($( "input[name='q1']:checked" ).val());
 			var answer3 = ($( "input[name='q2']:checked" ).val());
-			if(answer1 == questions[0].correct || answer2 == questions[1].correct || answer3 == questions[2].correct ){
+			var answer4 = ($( "input[name='q3']:checked" ).val());
+			var answer5 = ($( "input[name='q4']:checked" ).val());
+			var answer6 = ($( "input[name='q5']:checked" ).val());
+			if(answer1 == questions[0].correct || answer2 == questions[1].correct || answer3 == questions[2].correct || answer4 == questions[3].correct|| answer5 == questions[4].correct || answer6 == questions[5].correct){
 				win++;
 				console.log("you got it");
 			}	
-			else if(answer1 != questions[0].correct || answer2 != questions[1].correct || answer3 != questions[2].correct ) {
+			else if(answer1 != questions[0].correct || answer2 != questions[1].correct || answer3 != questions[2].correct || answer4 != questions[3].correct|| answer5 != questions[4].correct || answer6 != questions[5].correct) {
 				loss++;
 				console.log("you lose");
 			}	
