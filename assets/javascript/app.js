@@ -3,7 +3,7 @@ $(document).ready(function () {
 
 	//global variables
 
-	var time = 10;
+	var time = 30;
 	var intervalId;
 	var questions = [ 
 		{
@@ -64,9 +64,16 @@ $(document).ready(function () {
 
 	// function with for loop to loop through answers and split the "," out 
 
+	document.body.onkeyup = function (e) {
+
+	if (e.keyCode == 32) {	
+
+	$("#spaceBar").hide();
+	$("#wins").hide();	
+
 	function displayQuestion() {
 		for (var i = 0; i < questions.length; i++) {
-			$("#questions").append("<b>" + questions[i].question + "</b> <br>");
+			$("#questions").append("<b><h3>" + questions[i].question + "</h3></b> <br>");
 				currentQuestion + [i];
 				// console.log(currentQuestion + [i]);
 
@@ -99,20 +106,24 @@ $(document).ready(function () {
 			else {
 				console.log("please select answer");
 			}										
-		console.log(win);
-		console.log(loss);
 		});	
 	}; 
 
-	function radioCSS() {
-		$(".input0").css("padding", "10%");
-	}
+	$("#click").on("click", function() {
+		
+		$("#questions").html("You scored: " + win + " wins and " + loss + " losses");
+	
+		console.log(win);
+		console.log(loss);
+
+	});
 
 
-	// runTime();
+	runTime();
 	displayQuestion();
 	correctAnswer();
-	radioCSS();	
+		}
+	}
 
 });
 
