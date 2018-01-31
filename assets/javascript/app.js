@@ -115,8 +115,10 @@ $(document).ready(function () {
 
 	$("#click").on("click", function() {
 		
-		$("#questions").html("You scored: " + win + " wins and " + loss + " losses");
-	
+		$("#questions").html("<h2> Your Score: " + win + " wins and " + loss + " losses </h2>");
+		
+		quizOver();
+		$("#timer").hide();
 		console.log(win);
 		console.log(loss);
 
