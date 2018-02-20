@@ -14,12 +14,21 @@ h1 {
 #timer {
 	width: 100%;
 	margin: auto;
-	text-align: center;	
+	text-align: center;
 	color: white;
 	font-size: 48px;
 }
 
 #questions {
+	background-color: #ddd;
+	width: 96%;
+	margin: 1%;
+	text-align: center;
+	padding: 1%;
+	font-size: 1em;
+}
+
+#result {
 	background-color: #ddd;
 	width: 96%;
 	margin: 1%;
