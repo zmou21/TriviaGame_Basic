@@ -56,9 +56,6 @@ $(document).ready(function () {
 			quizOver();
 			alert("Time is Up!")
 		}
-		// if ($("#repeat").show()) {
-		// 	quizOver();
-		// }
 	};
 
 	function quizOver() {
@@ -73,6 +70,8 @@ $(document).ready(function () {
 	// hides submit button until keyboard is pressed
 	$("#button").hide();
 	$("#repeat").hide();
+	$("#result").hide();
+
 
 	// function with for loop to loop through answers and split the "," out
 
@@ -126,7 +125,9 @@ $(document).ready(function () {
 	function display() {
 		$("#click").on("click", function() {
 
-			$("#questions").html("<h2> Your Score: " + win + " wins and " + loss + " losses </h2>");
+			$("#result").show();
+			$("#questions").hide();
+			$("#result").html("<h2> Your Score: " + win + " wins and " + loss + " losses </h2>");
 
 			quizOver();
 			$("#timer").hide();
@@ -138,18 +139,24 @@ $(document).ready(function () {
 		});
 
 	}
-
-	function playAgain() {
-		$("#play").on("click", function() {
-			$("#timer").show();
-			displayQuestion();
-			display();
-			reset();
-		});
-	}
+		function playAgain() {
+			$("#play").on("click", function() {
+				$("#questions").show();
+				$("#result").hide();
+				// displayQuestion();
+				// display();
+				time = 30;
+				reset();
+				$("#timer").show();
+				$("#button").show();
+				$("#repeat").hide();
+			});
+		}
 			runTime();
 			displayQuestion();
 			correctAnswer();
+			display();
+			playAgain();
 		}
 	}
 
